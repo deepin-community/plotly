@@ -1,0 +1,360 @@
+plotly (4.14.3+dfsg-1) unstable; urgency=medium
+
+  * New upstream release 4.14.3
+  * Bump Standards-Version to 4.5.1. No changes required
+  * debian/watch: Bump file standard version to 4
+
+ -- Josue Ortega <josue@debian.org>  Wed, 20 Jan 2021 19:25:17 -0600
+
+plotly (4.12.0+dfsg-1) unstable; urgency=medium
+
+  * New upstream release (4.12.0). (Closes: #972781):
+    + Update plotly offline js to version 1.57.1
+  * debian/patches: Document Forwarded header as not-needed
+  * debian/copyright: Update copyright years
+
+ -- Josue Ortega <josue@debian.org>  Sat, 24 Oct 2020 07:38:59 -0600
+
+plotly (4.9.0+dfsg-1) unstable; urgency=medium
+
+  * New Upstream-Release (4.9.0):
+    + Update plotly offline js to version 1.54.6
+    + Refresh debian/patches
+  * Bump debhelper-compat to use (= 13)
+  * Update lintian override tag name (insane-line-length-in-source-file ->
+    very-long-line-length-in-source-file)
+  * Set executable permissions to debian/tests/python3-test
+
+ -- Josue Ortega <josue@debian.org>  Sun, 23 Aug 2020 18:28:19 -0600
+
+plotly (4.7.1+dfsg-1) unstable; urgency=medium
+
+  * New upstream release (4.7.1+dfsg)
+    + Refresh debian/patches
+  * Update plotly online javascript to version 1.54.1
+
+ -- Josue Ortega <josue@debian.org>  Sun, 17 May 2020 20:47:13 -0600
+
+plotly (4.6.0+dfsg-1) unstable; urgency=medium
+
+  * New upstream release (4.6.0):
+    + Closes: #952489
+  * Update plotly online javascript to version 1.53.0
+  * Bump Standards-Version to 4.5.0. No changes required
+
+ -- Josue Ortega <josue@debian.org>  Sat, 18 Apr 2020 16:59:28 -0600
+
+plotly (4.4.1+dfsg-1) unstable; urgency=medium
+
+  * New upstream release (4.4.1):
+    + Refresh debian/patches
+  * Update plotly online javascript to version 1.51.2
+  * Bump Standards-Version to 4.4.1. No changes needed
+
+ -- Josue Ortega <josue@debian.org>  Thu, 19 Dec 2019 07:38:57 -0600
+
+plotly (4.1.0+dfsg-1) unstable; urgency=medium
+
+  * New upstream release (4.1.0). Closes: #934929:
+    - Update debian/offline/plotly.js to use version 1.49.1.
+    - Update python3-plotly.install
+    - Update debian patches
+  * Update package data directory
+  * Update debian/repack
+  * debian/docs: Update README.rst to README.md
+  * Improve Debian CI test.
+
+ -- Josue Ortega <josue@debian.org>  Sat, 17 Aug 2019 12:06:18 -0600
+
+plotly (3.6.1+dfsg1-2) unstable; urgency=medium
+
+  * Add salsa-ci configuration file
+  * Remove python 2 package
+  * Update package to use debhelper-compat (= 12)
+  * Bump X-Python3-Version to (>= 3.7)
+  * Bump Standards-Version to 4.4.0. No changes required
+
+ -- Josue Ortega <josue@debian.org>  Tue, 13 Aug 2019 12:40:46 -0600
+
+plotly (3.6.1+dfsg1-1) unstable; urgency=medium
+
+  * New upstream release (3.6.1):
+    - Update debian/offline/plotly.js to use version 1.44.4.
+
+ -- Josue Ortega <josue@debian.org>  Thu, 21 Feb 2019 06:50:34 -0600
+
+plotly (3.5.0+dfsg1-1) unstable; urgency=medium
+
+  * New upstream release (3.5.0):
+    - Refresh debian/patches.
+  * Bump Standards-Version to 4.3.0:
+    - debian/control: Document Rules-Requires-Root field.
+  * Add CI tests.
+
+ -- Josue Ortega <josue@debian.org>  Sun, 06 Jan 2019 18:08:37 -0600
+
+plotly (3.4.2+dfsg1-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Remove ancient X-Python-Version field
+
+  [ Josue Ortega ]
+  * New upstream release (3.4.2):
+    - Update debian/patches.
+    - Add python{3}-retrying as dependency and build-dependency.
+    - Add patch debian/patches/00-remove-unused-js-files.patch to avoid
+      installation of useless js files.
+    - Move static files installation to /usr/share/python{3]-plotly.
+    - Add patch to replace package_data for /usr/share/python{3}-plotly.
+    - Disable tests since they do not work with debian package_data location.
+  * Update debian/repack.
+  * Bump Standards-Version, no changes required.
+
+ -- Josue Ortega <josue@debian.org>  Sun, 25 Nov 2018 21:10:20 -0600
+
+plotly (2.2.3+dfsg-1) unstable; urgency=medium
+
+  * New upstream version (2.2.3):
+    - Refreshes debian/patches.
+  * Bumps compat level from 9 to 11.
+  * debian/watch: Changes URI to its secure form.
+  * debian/control:
+    - Bumps Standards-Version to 4.1.3, no changes
+      required.
+    - Updates VCS-* fields to salsa.debian.org.
+
+ -- Josue Ortega <josue@debian.org>  Thu, 25 Jan 2018 19:43:21 -0600
+
+plotly (2.1.0+dfsg-1) unstable; urgency=medium
+
+  * New upstream release (2.1.0):
+    - Updates debian/offline/plotly.js version (1.28.3->1.31.0).
+  * debian/copyright: Changes order of debian/offline/plotly.js
+    paragrpah to avoid potential false checks at copyright verification.
+  * debian/control: Bumps Standards-Version to 4.1.1, no changes required.
+  * debian/control: Bumps debhelper dependency to >= 10.
+
+ -- Josue Ortega <josue@debian.org>  Sat, 14 Oct 2017 19:43:15 -0600
+
+plotly (2.0.14+dfsg-1) unstable; urgency=medium
+
+  * New upstream release (2.0.14).
+  * debian/copyright: Fixes debian/* copyright information.
+
+ -- Josue Ortega <josue@debian.org>  Fri, 11 Aug 2017 13:26:36 -0400
+
+plotly (2.0.12+dfsg-1) unstable; urgency=medium
+
+  * New upstream version (2.0.12)
+  * Added debian/offline/plotly.js to enable offline mode for plotly
+    without using a minified file (Closes: #834528).
+  * debian/copyright: Added copyright information for debian/offline/plotly.js
+  * Standards-Version updated to 4.0.0:
+    - debian/copyright: Format URI changed to https mode.
+
+ -- Josue Ortega <josue@debian.org>  Mon, 10 Jul 2017 09:17:28 -0600
+
+plotly (2.0.9+dfsg-1) experimental; urgency=medium
+
+  * New upstream release (2.0.9)
+  * debian/control: Adds python{3}-nbformat and python{3}-decorator as
+    dependency.
+  * Updates debian/patches/01-removes-install-requires.patch
+
+ -- Josue Ortega <josue@debian.org>  Fri, 02 Jun 2017 17:24:31 -0600
+
+plotly (2.0.1+dfsg-1) experimental; urgency=medium
+
+  * New upstream release (2.0.1):
+    - Refreshes debian/patches.
+
+ -- Josue Ortega <josue@debian.org>  Sun, 19 Feb 2017 16:55:20 -0600
+
+plotly (1.13.0+dfsg-1) unstable; urgency=medium
+
+  * New upstream release (1.13.0):
+    - Updates debian/repack.
+    - Refreshes debian/patches.
+  * debian/control: Adds python-pandas, python-scipy, python-ipykernel to
+    suggested packages in both versions of the package.
+
+ -- Josue Ortega <josue@debian.org>  Wed, 18 Jan 2017 20:58:42 -0600
+
+plotly (1.12.12+dfsg-1) unstable; urgency=medium
+
+  * New upstream release (plotly-1.12.12).
+  * debian/control: Adds ipython{3}, python3-ipywidgets as build-dependency.
+    See bug #840522 for more information.
+  * debian/rules: Enables upstream tests.
+
+ -- Josue Ortega <josue@debian.org>  Sun, 11 Dec 2016 10:31:31 -0600
+
+plotly (1.12.9+dfsg-2) unstable; urgency=medium
+
+  * Closes: #840522:
+    - Removes(temporarily) build-dependency on ipython-notebook.
+    - Disables upstream tests.
+
+ -- Josue Ortega <josue@debian.org>  Sat, 22 Oct 2016 19:56:14 -0600
+
+plotly (1.12.9+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Josue Ortega <josue@debian.org>  Sun, 04 Sep 2016 15:12:28 -0600
+
+plotly (1.12.6+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Josue Ortega <josue@debian.org>  Sat, 13 Aug 2016 17:11:00 -0600
+
+plotly (1.12.5+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Josue Ortega <josue@debian.org>  Sun, 07 Aug 2016 08:28:10 -0600
+
+plotly (1.12.4+dfsg-1) unstable; urgency=medium
+
+  * New Upstream release.
+
+ -- Josue Ortega <josue@debian.org>  Thu, 21 Jul 2016 12:33:34 -0600
+
+plotly (1.12.2+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Josue Ortega <josue@debian.org>  Sun, 26 Jun 2016 13:30:51 -0600
+
+plotly (1.12.1+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control: Updates maintainer's mail address.
+
+ -- Josue Ortega <josue@debian.org>  Sun, 19 Jun 2016 21:56:44 -0600
+
+plotly (1.12.0+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Mon, 06 Jun 2016 18:57:28 -0600
+
+plotly (1.10.0+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/changelog:
+    - Bumps Standards-Version to 3.9.8, no changes required.
+    - Bumps X-Python3-Version to 3.5.
+    - Fixes typo in Description.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Tue, 24 May 2016 06:18:30 -0600
+
+plotly (1.9.9+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sun, 17 Apr 2016 09:47:00 -0600
+
+plotly (1.9.7+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Mon, 04 Apr 2016 20:51:17 -0600
+
+plotly (1.9.6+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control: Bumps standards version to 3.9.7, no changes required.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sat, 12 Mar 2016 11:44:20 -0600
+
+plotly (1.9.5+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control: Updated VCS-* fields in order to use a secure URI.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sun, 24 Jan 2016 07:41:37 -0600
+
+plotly (1.9.4+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/copyright: Added comment about dfsg version.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Mon, 11 Jan 2016 21:23:28 -0600
+
+plotly (1.9.3+dfsg-1) unstable; urgency=medium
+
+  * New upstream release:
+    - dfsg version: Removed plotly/offline/plotly.min.js.
+    - updated debian/patches.
+    - updated debian/watch.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sun, 27 Dec 2015 14:06:15 -0600
+
+plotly (1.8.8-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sun, 01 Nov 2015 14:20:12 -0600
+
+plotly (1.8.6-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control:
+    - Added the following build dependendies:
+      ipython-notebook, python-numpy, python-matplotlib, python-numpy
+    - Bumped X-Python3-Version to 3.4
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sat, 03 Oct 2015 09:25:46 -0600
+
+plotly (1.8.4-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sun, 20 Sep 2015 18:41:02 -0600
+
+plotly (1.8.3-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sat, 22 Aug 2015 13:53:28 +0200
+
+plotly (1.8.1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Tue, 11 Aug 2015 09:20:14 -0600
+
+plotly (1.7.7-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sun, 26 Jul 2015 20:39:18 -0600
+
+plotly (1.7.6-1) unstable; urgency=medium
+
+  * New upstream release:
+    - debian/control: Removed python-simplejson from Suggests section.
+    - Updated debian/patches/01-removes-install-requires.patch.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sun, 12 Jul 2015 16:29:11 -0600
+
+plotly (1.6.17-1) unstable; urgency=medium
+
+  * New upstream release:
+    - Updated debian/patches/01-removes-install-requires.patch.
+    - debian/control: Updated package install dependencies and build
+      dependencies.
+    - debian/control: Added dh-python as build dependency.
+    - debian/copyright: Updated copyright holder year.
+  * debian/watch: Updated in order to use the pypi.debian.net redirector
+    service.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sun, 10 May 2015 17:53:14 -0600
+
+plotly (1.2.9-1) unstable; urgency=low
+
+  * Initial release (Closes: #763584)
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sat, 04 Oct 2014 12:03:23 -0600

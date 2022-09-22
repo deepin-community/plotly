@@ -1,0 +1,4 @@
+# plotly.js file is intended to be included prebuilt, but not ofuscated
+plotly source: very-long-line-length-in-source-file
+plotly source: source-contains-prebuilt-javascript-object
+plotly source: source-is-missing

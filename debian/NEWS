@@ -1,0 +1,35 @@
+plotly (4.1.0+dfsg-1) unstable; urgency=medium
+
+  Plotly has been updated to its new major release 4.1.0.
+
+  Prior versions of plotly.py contained functionality for creating
+  figures in both “online” and “offline” modes. In “online” mode,
+  figures were uploaded to the Chart Studio cloud (or on-premise)
+  service, whereas in “offline” mode figures were rendered locally.
+
+  Since version 4 the package provides offline only mode. All 
+  functionality for interacting with Chart Studio has been moved from
+  top-level `plotly` to a new top-level `chart-studio` module. (eg. 
+  `chart_studio.plotly.plot`). This chart_studio module is no longer
+  included in the plotly distribution package. Now it is included
+  in a new optional chart-studio distribution package (See #934987)
+
+  A complete migration guide can be found online: https://plot.ly/python/v4-migration
+
+ -- Josue Ortega <josue@debian.org>  Sat, 17 Aug 2019 12:06:18 -0600
+
+plotly (3.4.2+dfsg1-1) unstable; urgency=medium
+
+  Plotly has been updated to its new major release, this may
+  break current implementations using the version 2 of the library.
+  To see the full list and how to migrate check the migration guide:
+  https://github.com/plotly/plotly.py/blob/v3.0.0/migration-guide.md
+
+ -- Josue Ortega <josue@debian.org>  Sun, 25 Nov 2018 20:58:14 -0600
+
+plotly (1.13.0+dfsg-1) unstable; urgency=medium
+
+  The plot-schema from https://api.plot.ly/plot-schema is no longer updated
+  on import.
+
+ -- Josue Ortega <josue@debian.org>  Wed, 18 Jan 2017 16:22:29 -0600

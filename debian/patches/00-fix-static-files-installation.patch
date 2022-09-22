@@ -1,0 +1,74 @@
+Description: Replace static files path for debian specific data path.
+Author: Josue Ortega <josue@debian.org>
+Last-Update: 2020-05-17
+Forwarded: not-needed
+
+--- a/plotly/io/_orca.py
++++ b/plotly/io/_orca.py
+@@ -222,15 +222,14 @@
+         # Initialize properties dict
+         self._props = {}
+ 
+-        # Compute absolute path to the 'plotly/package_data/' directory
+-        root_dir = os.path.dirname(os.path.abspath(plotly.__file__))
+-        self.package_dir = os.path.join(root_dir, "package_data")
++        # Compute absolute path to the '/usr/share/python3-plotly/' directory
++        self.package_dir = '/usr/share/python3-plotly'
+ 
+         # Load pre-existing configuration
+         self.reload(warn=False)
+ 
+         # Compute constants
+-        plotlyjs = os.path.join(self.package_dir, "plotly.min.js")
++        plotlyjs = os.path.join(self.package_dir, "plotly.js")
+         self._constants = {
+             "plotlyjs": plotlyjs,
+             "config_file": os.path.join(PLOTLY_DIR, ".orca"),
+--- a/plotly/data/__init__.py
++++ b/plotly/data/__init__.py
+@@ -178,8 +178,7 @@
+ 
+     return pandas.read_csv(
+         os.path.join(
+-            os.path.dirname(os.path.dirname(__file__)),
+-            "package_data",
++            "/usr/share/python3-plotly",
+             "datasets",
+             d + ".csv.gz",
+         )
+--- a/setup.py
++++ b/setup.py
+@@ -490,14 +490,6 @@
+     ]
+     + graph_objs_packages
+     + validator_packages,
+-    package_data={
+-        "plotly": [
+-            "package_data/*",
+-            "package_data/templates/*",
+-            "package_data/datasets/*",
+-        ],
+-        "plotlywidget": ["static/extension.js", "static/index.js"],
+-    },
+     data_files=[
+         (
+             "share/jupyter/nbextensions/plotlywidget",
+--- a/plotly/io/_templates.py
++++ b/plotly/io/_templates.py
+@@ -84,10 +84,13 @@
+                 else:
+                     # Load template from package data
+                     path = os.path.join(
+-                        "package_data", "templates", template_name + ".json"
++                        "/usr/share/python3-plotly", "templates", f'{template_name}.json'
+                     )
+-                    template_str = pkgutil.get_data("plotly", path).decode("utf-8")
+-                    template_dict = json.loads(template_str)
++                    template_str = ''
++                    with open(path, 'r') as f:
++                        template_str = f.read()
++                    template_dict = json.loads(template_str.encode('utf-8').decode('utf-8'))
++
+                     template = Template(template_dict, _validate=False)
+ 
+                     self._templates[template_name] = template

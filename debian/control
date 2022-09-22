@@ -1,0 +1,42 @@
+Source: plotly
+Section: python
+Priority: optional
+Maintainer: Josue Ortega <josue@debian.org>
+Build-Depends: debhelper-compat (= 13),
+ dh-python,
+ python3-all,
+ python3-setuptools (>= 5.5.1),
+ python3-six (>= 1.8.0),
+ python3-requests (>= 2.3.0),
+ python3-tz (>= 2012c),
+ python3-numpy (>= 1.9.2),
+ python3-matplotlib (>= 1.4.2),
+ ipython3 (>= 5.1.0),
+ python3-ipywidgets,
+ python3-retrying
+X-Python3-Version: >= 3.7
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+Homepage: https://plot.ly/python/
+Vcs-Git: https://salsa.debian.org/debian/plotly.git
+Vcs-Browser: https://salsa.debian.org/debian/plotly
+
+Package: python3-plotly
+Architecture: all
+Depends: ${misc:Depends},
+ ${python3:Depends},
+ python3-six (>= 1.8.0),
+ python3-requests (>= 2.3.0),
+ python3-tz (>= 2012c),
+ python3-decorator (>= 4.0.6),
+ python3-nbformat (>= 4.2.0),
+ python3-retrying
+Suggests: python3-matplotlib (>= 1.3.1),
+ ipython3 (>= 1.3.1),
+ python3-pandas,
+ python3-scipy,
+ python3-ipykernel
+Description: Python 3 plotting library for publication-quality graphs
+ Python 3 plotting library for collaborative, interactive, publication-quality
+ graphs. Plotly is an online collaborative data analysis and graphing tool.
+ The Python API allows you to access all of Plotly's functionality from Python.

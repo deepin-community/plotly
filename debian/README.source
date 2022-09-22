@@ -1,0 +1,13 @@
+Building the Debian source package for plotly
+=======================================================
+
+Pristine upstream source contains non-DFSG-free files
+-----------------------------------------------------
+
+The pristine upstream source contains obfuscated files, that are thereby
+not appropriate for use as source files. This violates DFSG §2.
+
+The ‘debian/repack’ program removes those files to create the Debian
+upstream source tarball.
+
+ -- Josue Ortega <josueortega@debian.org.gt>  Sun, 27 Dec 2015 13:41:01 -0600

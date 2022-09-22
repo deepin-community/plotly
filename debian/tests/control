@@ -1,0 +1,2 @@
+Tests: python3-test
+Depends: python3-plotly, python3-numpy

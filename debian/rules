@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+#DH_VERBOSE = 1
+
+export PYBUILD_NAME=plotly
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_auto_test:
+# Disable tests since do not work with package static files at package_data location
