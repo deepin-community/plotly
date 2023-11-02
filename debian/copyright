@@ -13,11 +13,11 @@ Copyright: 2013-2017 Chris P <chris@plot.ly>
 License: MIT
 
 Files: debian/*
-Copyright: 2015-2020 Josue Ortega <josue@debian.org>
+Copyright: 2015-2023 Josue Ortega <josue@debian.org>
 License: MIT
 
 Files: debian/offline/plotly.js
-Copyright: 2012-2020, Plotly, Inc.
+Copyright: 2012-2023, Plotly, Inc.
            2009 Thomas Robinson <280north.com>
            2012 Dean McNamee
            2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors

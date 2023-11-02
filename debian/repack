@@ -58,10 +58,11 @@ printf "Removing non-DFSG-free files:\n"
 
 nonfree_files=(
     plotly/package_data/plotly.min.js
+    jupyterlab_plotly
 )
 
 for f in "${nonfree_files[@]}" ; do
-    rm -fv "${repack_dir}/$f"
+    rm -rfv "${repack_dir}/$f"
 done
 
 printf "Rebuilding DFSG-free upstream source tarball:\n"

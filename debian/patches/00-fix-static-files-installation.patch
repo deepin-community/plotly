@@ -1,7 +1,9 @@
-Description: Replace static files path for debian specific data path.
+Description: Replace static files path for debian specific data path and remove generation
+ of JS files.
 Author: Josue Ortega <josue@debian.org>
-Last-Update: 2020-05-17
+Last-Update: 2023-07-02
 Forwarded: not-needed
+
 
 --- a/plotly/io/_orca.py
 +++ b/plotly/io/_orca.py
@@ -24,21 +26,18 @@ Forwarded: not-needed
          self._constants = {
              "plotlyjs": plotlyjs,
              "config_file": os.path.join(PLOTLY_DIR, ".orca"),
---- a/plotly/data/__init__.py
-+++ b/plotly/data/__init__.py
-@@ -178,8 +178,7 @@
- 
-     return pandas.read_csv(
-         os.path.join(
--            os.path.dirname(os.path.dirname(__file__)),
--            "package_data",
-+            "/usr/share/python3-plotly",
-             "datasets",
-             d + ".csv.gz",
-         )
 --- a/setup.py
 +++ b/setup.py
-@@ -490,14 +490,6 @@
+@@ -240,7 +240,7 @@
+ 
+     req = requests.get(url)
+     assert req.status_code == 200
+-    path = os.path.join(here, "plotly", "package_data", "plotly.min.js")
++    path = os.path.join(here, "plotly", "package_data", "plotly.js")
+     with open(path, "wb") as f:
+         f.write(req.content)
+ 
+@@ -540,35 +540,6 @@
      ]
      + graph_objs_packages
      + validator_packages,
@@ -48,14 +47,46 @@ Forwarded: not-needed
 -            "package_data/templates/*",
 -            "package_data/datasets/*",
 -        ],
--        "plotlywidget": ["static/extension.js", "static/index.js"],
+-        "jupyterlab_plotly": [
+-            "nbextension/*",
+-            "labextension/*",
+-            "labextension/static/*",
+-        ],
 -    },
-     data_files=[
-         (
-             "share/jupyter/nbextensions/plotlywidget",
+-    data_files=[
+-        ("etc/jupyter/nbconfig/notebook.d", ["jupyterlab-plotly.json"]),
+-    ],
+     install_requires=["tenacity>=6.2.0", "packaging"],
+     zip_safe=False,
+-    cmdclass=dict(
+-        build_py=js_prerelease(versioneer_cmds["build_py"]),
+-        egg_info=js_prerelease(egg_info),
+-        sdist=js_prerelease(versioneer_cmds["sdist"], strict=True),
+-        jsdeps=NPM,
+-        codegen=CodegenCommand,
+-        updateschema=UpdateSchemaCommand,
+-        updatebundle=UpdateBundleCommand,
+-        updateplotlyjs=js_prerelease(UpdatePlotlyJsCommand),
+-        updatebundleschemadev=UpdateBundleSchemaDevCommand,
+-        updateplotlyjsdev=UpdatePlotlyJsDevCommand,
+-        updateplotlywidgetversion=UpdatePlotlywidgetVersionCommand,
+-        version=versioneer_cmds["version"],
+-    ),
+ )
+--- a/plotly/data/__init__.py
++++ b/plotly/data/__init__.py
+@@ -215,7 +215,7 @@
+     return pandas.read_csv(
+         os.path.join(
+             os.path.dirname(os.path.dirname(__file__)),
+-            "package_data",
++            "/usr/share/python3-plotly",
+             "datasets",
+             d + ".csv.gz",
+         )
 --- a/plotly/io/_templates.py
 +++ b/plotly/io/_templates.py
-@@ -84,10 +84,13 @@
+@@ -82,10 +82,14 @@
                  else:
                      # Load template from package data
                      path = os.path.join(
@@ -64,6 +95,7 @@ Forwarded: not-needed
                      )
 -                    template_str = pkgutil.get_data("plotly", path).decode("utf-8")
 -                    template_dict = json.loads(template_str)
++
 +                    template_str = ''
 +                    with open(path, 'r') as f:
 +                        template_str = f.read()
@@ -72,3 +104,22 @@ Forwarded: not-needed
                      template = Template(template_dict, _validate=False)
  
                      self._templates[template_name] = template
+--- a/plotly/offline/offline.py
++++ b/plotly/offline/offline.py
+@@ -86,9 +86,13 @@
+     >>> with open('multi_plot.html', 'w') as f:
+     ...      f.write(html) # doctest: +SKIP
+     """
+-    path = os.path.join("package_data", "plotly.min.js")
+-    plotlyjs = pkgutil.get_data("plotly", path).decode("utf-8")
+-    return plotlyjs
++    def get_debian_plotlyjs():
++        debian_path = '/usr/share/python3-plotly/plotly.js'
++        plotly_js_data = None
++        with open(debian_path, 'r') as file_:
++            plotly_js_data = file_.read()
++        return plotly_js_data.encode('utf-8').decode('utf-8')
++    return get_debian_plotlyjs()
+ 
+ 
+ def _build_resize_script(plotdivid, plotly_root="Plotly"):

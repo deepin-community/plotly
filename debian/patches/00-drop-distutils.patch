@@ -1,0 +1,64 @@
+Description: In Python 3.10 and 3.11, distutils has been formally marked as
+ deprecated. Code that imports distutils will no longer work from Python 3.12.
+ This patch replaces the distutils usage.
+Author: Josue Ortega <josue@debian.org>
+Last-Update: 2023-07-02
+Forwarded: no
+
+--- a/setup.py
++++ b/setup.py
+@@ -2,11 +2,11 @@
+ import sys
+ import platform
+ import json
++import logging
+ 
+ from setuptools import setup, Command
+ from setuptools.command.egg_info import egg_info
+ from subprocess import check_call
+-from distutils import log
+ 
+ # ensure the current directory is on sys.path; so versioneer can be imported
+ # when pip uses PEP 517/518 build rules.
+@@ -98,13 +98,13 @@
+             except Exception as e:
+                 missing = [t for t in jsdeps.targets if not os.path.exists(t)]
+                 if strict or missing:
+-                    log.warn("rebuilding js and css failed")
++                    logging.warning("rebuilding js and css failed")
+                     if missing:
+-                        log.error("missing files: %s" % missing)
++                        logging.error("missing files: %s" % missing)
+                     raise e
+                 else:
+-                    log.warn("rebuilding js and css failed (not a problem)")
+-                    log.warn(str(e))
++                    logging.warning("rebuilding js and css failed (not a problem)")
++                    logging.warning(str(e))
+             command.run(self)
+             update_package_data(self.distribution)
+ 
+@@ -164,12 +164,12 @@
+ 
+     def run(self):
+         if skip_npm:
+-            log.info("Skipping npm-installation")
++            logging.info("Skipping npm-installation")
+             return
+ 
+         has_npm = self.has_npm()
+         if not has_npm:
+-            log.error(
++            logging.error(
+                 "`npm` unavailable.  If you're running this command using sudo, make sure `npm` is available to sudo"
+             )
+ 
+@@ -177,7 +177,7 @@
+         env["PATH"] = npm_path
+ 
+         if self.should_run_npm_install():
+-            log.info(
++            logging.info(
+                 "Installing build dependencies with npm.  This may take a while..."
+             )
+             npmName = self.get_npm_name()
