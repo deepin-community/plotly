@@ -1,4 +1,3 @@
 00-fix-static-files-installation.patch
 01-removes-install-requires.patch
-00-unminified-js-path.patch
-00-remove-unused-js-files.patch
+00-drop-distutils.patch

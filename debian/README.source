@@ -10,4 +10,10 @@ not appropriate for use as source files. This violates DFSG §2.
 The ‘debian/repack’ program removes those files to create the Debian
 upstream source tarball.
 
- -- Josue Ortega <josueortega@debian.org.gt>  Sun, 27 Dec 2015 13:41:01 -0600
+The minified JS library packed for online purposes has been replaced by its
+unminified version. 
+
+The jupyter lab extensions have been removed. 
+
+
+ -- Josue Ortega <josue@debian.org>  Sun, 02 Jul 2023 10:29:12 -0600

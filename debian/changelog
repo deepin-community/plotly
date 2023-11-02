@@ -1,3 +1,30 @@
+plotly (5.15.0+dfsg1-1) unstable; urgency=medium
+
+  * Prepare to new upstream release
+  * Refresh debian/patches:
+    + Merge 00-remove-unused-js-files.patch and 00-unminified-js-path.patch into
+      00-fix-static-files-installation.patch.
+  * debian/control:
+    + Drop dependency on python3-six. (Closes: #1039445)
+    + Add pybuild-plugin-pyproject as build dep.
+  * debian/copyright: Update copyright years.
+  * Bump Standards-Version, no changes required.
+  * debian/patches/00-drop-distutils.patch: Add patch dropping usage of
+    distutils.
+
+ -- Josue Ortega <josue@debian.org>  Sun, 02 Jul 2023 12:24:23 -0600
+
+plotly (5.4.1+dfsg-1) unstable; urgency=medium
+
+  * New upstream release (5.4.1):
+   + Refresh debian/patches.
+   + Update debian/offline/ploty.js v1.57.1 to version 2.6.3.
+  * debian/control: Drop build and package dependency on python-retrying
+    in order to be replaced by python-tenacity.
+  * debian/copyright: Update copyright holders year.
+
+ -- Josue Ortega <josue@debian.org>  Wed, 08 Dec 2021 21:24:40 -0600
+
 plotly (4.14.3+dfsg-1) unstable; urgency=medium
 
   * New upstream release 4.14.3
